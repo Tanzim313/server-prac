@@ -13,6 +13,7 @@ async function runGetStarted() {
     const database = client.db('tools_db');
     const toolsCollection = database.collection('tools');
 
+    //get:
 
     app.get("/tools",async(req,res)=>{
 
@@ -22,18 +23,8 @@ async function runGetStarted() {
 
     });
 
-    app.get("/tools/:id",async(req,res)=>{
 
-        const id = req.params.id;
-
-        const data = await toolsCollection.findOne({_id:new ObjectId(id)});
-        
-        console.log(data);
-        res.send(data);
-    })
-
-
-    //post
+    //post:
 
     app.post("/tools",async(req,res)=>{
 
@@ -44,6 +35,21 @@ async function runGetStarted() {
         res.send(result);
 
     })
+
+
+
+
+
+
+    //app.get("/tools/:id",async(req,res)=>{
+
+        //const id = req.params.id;
+
+        //const data = await toolsCollection.findOne({_id:new ObjectId(id)});
+        
+        //console.log(data);
+        //res.send(data);
+    //})
 
     
 
